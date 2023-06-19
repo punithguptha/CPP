@@ -276,3 +276,56 @@ We keep on doing this until one of them turns 0, then the other one at this poin
 
 
 ---
+**Recursion:** When a function calls itself until a specified condition is met.
+
+Notes: &nbsp;
+1.  Stackoverflow occurs when infinite recursions occur,since each function call is preserved in stack memory until that is executed and the stack never gets cleared out
+2.  Space complexity generally is deduced by max stack space that is being taken at any point of time
+3.  Code written after a recursive function call is referred to as backtracking
+4.  Two Approaches for Recursion:
+    1.  Parameterised Recursion: In here the return statement does nothing but return on the base condition, and the parameter contains the value which we need.
+    2.  Functional Recursion: Here the return statement returns some value which is again used by other callers.
+5. Always make a habit to write a recursive tree. This helps in calculating the TC as well and also in understanding the problem clearly.
+6. Try to pass values as references to a recursive call when you are not trying to modify inputs/print to an output var, which will save up the time of copying vars for each recursive call
+---
+**Hashing:** Prestoring/Fetching
+
+```c++
+//This is to initialize array with all its values to 0
+int arr1[10]={0};
+
+//Globally max size that an integer array can take is 10^7, as shown below..If more than that it will throw a segmentation fault
+int arr2[1e7]={0};
+
+
+
+int main(){
+    int arr[10000000];={}//This will throw a segmentation fault, because inside int main max size that can be allocated to integer array is 10^6 aka 1e6
+    char ch;
+    cin>>ch;
+    int charArr1[26]={0};
+    int charIndex=ch-'a'; //Gives the index for array of the character ch
+    int charArr2[256]={0};//This is another method to hash all the characters..For this we dont need to do ch-'a'. just charArr2[ch]++ will work
+
+    unordered_map<int,int>ump;
+    vector<pair<int,int>>temp;
+    for(auto it:ump){
+        temp.push_back(it);//This syntax will push the key value pairs of unordered map into vector. Example of combination usage of vectors and maps
+    }
+}
+```
+Notes: &nbsp;
+1. Ascii: 48(digits), 65(UpperCase Alphabets), 97(Lowercase Alphabets)
+2. Hashing can be done by using arrays as well. But arrays have limitations in how much it can store as explained above
+3. Hashing can also be achieved using maps.
+   1. Using ordered_map (which stores the keys in sorted order) time complexity for all operations is O(logN)
+   2. The default value for a map<int,int>'s key will be 0.
+   3. Using unordered_map time complexity on average and best is O(1). But as name suggests it doesnot store the keys in ordered fashion. 
+   4. The worst case for unordered_map is O(N)(But it doesnt happen in general). So prefer using this, and if it doesnt work, use the ordered map.This worst case occurs when there are internal Collisions
+4. Hashing in maps works by these principles:
+   1. Division method
+   2. Folding method
+   3. Mid Square method
+5. >For map the key can be any data structure like pair<int,int> etc but for unordered_map the key cant be simple data types like int,char,string etc. Complex or custom datatypes are not allowed as keys here.
+6. When map should be sorted based on some particular condition, we can as shown in the above code example input its values into vector and sort the vector using custom comparator logic(Example is in BasicHashing.cpp topK function)
+---
