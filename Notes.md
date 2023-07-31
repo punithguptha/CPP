@@ -5,6 +5,9 @@
 ```
 
 ---
+Type template and click the auto suggest which will pre fill the template code configured earlier in vscode json config
+
+---
 **Data Types:**<br>
 Integer => int, long, long long
 Decimal => float, double, long double
