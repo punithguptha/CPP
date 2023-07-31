@@ -67,6 +67,10 @@ void frequencyCount(vector<int>&arr, int N,int P){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        reopen("output.txt", "w", stdout);
+    #endif
     int N,P;
 
     cin>>N>>P;

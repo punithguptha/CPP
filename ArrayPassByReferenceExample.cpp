@@ -9,6 +9,10 @@ void modifyArray(int arr[],int arrlen){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        reopen("output.txt", "w", stdout);
+    #endif
     int n; cin>>n;
     int arr[n];
     for(int i=0;i<n;i++){

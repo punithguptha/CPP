@@ -105,6 +105,10 @@ vector<long long> problem10(int N){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        reopen("output.txt", "w", stdout);
+    #endif
     int N;
     cin>>N;
     problem1(N);

@@ -42,7 +42,10 @@ int problem4(int arr[],int n, int x){
 }
 
 int main(){
-
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        reopen("output.txt", "w", stdout);
+    #endif
     //1. To check if element exists in sorted array or not
     int A[]={1,3,5,7,11};
     int n;

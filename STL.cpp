@@ -13,6 +13,10 @@ bool customcomp(pair<int,int> p1, pair<int,int> p2){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        reopen("output.txt", "w", stdout);
+    #endif
     vector<int> v1={10,20,30,40,50};
     v1.erase(v1.begin()+1,v1.begin()+5);
     for(auto it:v1){

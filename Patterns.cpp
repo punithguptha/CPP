@@ -371,6 +371,10 @@ void pattern22Alternative(int n){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        reopen("output.txt", "w", stdout);
+    #endif
     int t,n;
     cin>>t;
     for(int i=0;i<t;i++){

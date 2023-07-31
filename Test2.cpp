@@ -5,6 +5,10 @@
 using namespace std;
 
 int main(){
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        reopen("output.txt", "w", stdout);
+    #endif
     int n;
     cin>>n;
     if(n%2==0){
