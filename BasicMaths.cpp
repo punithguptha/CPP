@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 int countDigits(int N){
     //Given a number N. Count the number of digits in N which evenly divides N
     //Evenly divides mean a number leaving remainder 0 when divided
@@ -120,6 +119,11 @@ int MinNumberofJumps(int arr[],int n){
 }
 
 int main(){
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
+
     int n1,n2;
     cin>>n1>>n2;
     cout<<countDigits(n1)<<endl;
