@@ -103,6 +103,9 @@ vector<int>::iterator it_1=v3.end(); //=>End always points to memory location ri
 vector<int>::iterator it_2=v3.rend();//=> Points to element to the left of first element
 vector<int>::iterator it_3=v3.rbegin();//=> Points to the last element location..But during iteration it prints in reverse fashion it_3++ gives us last but one element
 
+//To reverse an array 
+reverse(v.begin(),v.begin()+5);//Excluding last element
+
 cout<<v3.back()<<endl; //Prints the last element in v3 vector
 
 //Iterating through vectors --Start
@@ -332,3 +335,64 @@ Notes: &nbsp;
 5. >For map the key can be any data structure like pair<int,int> etc but for unordered_map the key cant be simple data types like int,char,string etc. Complex or custom datatypes are not allowed as keys here.
 6. When map should be sorted based on some particular condition, we can as shown in the above code example input its values into vector and sort the vector using custom comparator logic(Example is in BasicHashing.cpp topK function)
 ---
+**Sorting:**
+There are a number of sorting algorithms. Below mentioned are list of few among them:
+
+1. Selection Sort: Takes minimum in each round of iteration and puts it to the front
+2. Bubble Sort: Takes maximum in each round and put it at the end using swapping of elements
+3. Insertion Sort: Iterate through elements and put each element in its correct position by moving left and swapping in this process. Stop if the current element is in correct position(which means v[i]>v[i-1])
+4. Merge Sort: Divide and Merge
+    Pseudo Code:
+    ```c++
+    void mergeSort(vector<int>&v, int low, int high){
+        if(low>=high) return;
+        int mid=low+(high-low)/2;
+        mergeSort(v,low,mid);
+        mergeSort(v,mid+1,high);
+        merge(v,low,mid,high);
+    }
+
+    void merge(vector<int>&v, int low, int mid, int high){
+        int leftPointer=low;
+        int rightPointer=mid+1;
+        vector<int> temp;
+        int tempIndex=0;
+        while(leftPointer<=mid && rightPointer<=high){
+            if(v[leftPointer]<v[rightPointer]){
+                temp.push(v[leftPointer]);
+                leftPointer++;
+            }else{
+                temp.push(v[rightPointer]);
+                rightPointer++;
+            }
+        }
+        while(leftPointer<=mid){
+            temp.push(v[leftPointer]);
+            leftPointer++;
+        }
+        while(rightPointer<=right){
+            temp.push(v[rightPointer]);
+            rightPointer++;
+        }
+
+        for(int i=low;i<=high;i++){
+            v[i]=temp[tempIndex];
+            tempIndex++;
+        }
+    }
+    ```
+    Space Complexity: O(N) and Time Complexity: O(NlogN)
+ 5. Quick Sort: Divide and Conquer approach
+    Steps:
+    1. Pick a pivot(any random element in the array)
+    2. Place the pivot element in its correct position in a sorted array and in this process also make sure that smaller elements to the pivot are placed to pivot's left and larger elements to pivot are placed at pivot's right
+    3. During placing of pivot we stop once the right pointer crosses the left pointer. Then the rightPointer position which crosses the left one will be the position of the pivot Element
+    4. We are assuming the pivot to always be the first element for this approach for simplicity. Although pivot as mentioned earlier can be any element in the array.
+    Time Complexity: O(NlogN) Space Complexity:O(1) -> Note that we are not considering the recursion stack space here while calculating the Space Complexity
+
+
+---
+**Arrays:**
+1. Global Array declaration makes the values of array to 0 by default in C++ and Java
+2. Max size of array inside int main will be 10^6 and globally it is 10^7(for int array)
+3. 
